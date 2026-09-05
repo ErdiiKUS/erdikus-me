@@ -13,20 +13,23 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { experienceAreas, type ExperienceArea } from "@/lib/experience";
 import { cn } from "cn";
 
 function SectionLabel({ index, label }: { index: string; label: string }) {
   return (
-    <p className="mb-3 font-heading text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-      {index} — {label}
-    </p>
+    <div className="mb-3 flex items-center gap-3">
+      <p className="font-heading text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+        {index} — {label}
+      </p>
+      <span className="h-px flex-1 bg-foreground/10" />
+    </div>
   );
 }
 
@@ -35,16 +38,16 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
   const index = () => String(section++).padStart(2, "0");
 
   return (
-    <div className="space-y-8 pb-8">
+    <div className="space-y-7">
       <section>
         <SectionLabel index={index()} label="Yetkinlikler" />
-        <ul className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+        <div className="flex flex-wrap gap-1.5">
           {area.skills.map((skill) => (
-            <li key={skill} className="text-sm text-muted-foreground">
-              ○ {skill}
-            </li>
+            <Badge key={skill} variant="outline">
+              {skill}
+            </Badge>
           ))}
-        </ul>
+        </div>
       </section>
 
       <section>
@@ -61,14 +64,19 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
       {area.roles?.length ? (
         <section>
           <SectionLabel index={index()} label="Profesyonel Deneyim" />
-          <div className="space-y-5">
+          <div className="grid gap-3">
             {area.roles.map((role) => (
-              <div key={`${role.company}-${role.title}`} className="space-y-2">
-                <p className="font-heading font-medium">{role.company}</p>
-                <p className="text-sm text-muted-foreground">{role.title}</p>
-                <p className="text-sm text-muted-foreground">{role.dates}</p>
+              <div
+                key={`${role.company}-${role.title}`}
+                className="rounded-xl p-4 ring-1 ring-foreground/10"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <p className="font-heading font-medium">{role.company}</p>
+                  <p className="text-xs text-muted-foreground">{role.dates}</p>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">{role.title}</p>
                 {role.tags?.length ? (
-                  <div className="flex flex-wrap gap-1.5 pt-1">
+                  <div className="mt-3 flex flex-wrap gap-1.5">
                     {role.tags.map((tag) => (
                       <Badge key={tag} variant="secondary">
                         {tag}
@@ -77,7 +85,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
                   </div>
                 ) : null}
                 {role.points?.length ? (
-                  <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
+                  <ul className="mt-3 list-disc space-y-1 pl-4 text-sm text-muted-foreground">
                     {role.points.map((point) => (
                       <li key={point}>{point}</li>
                     ))}
@@ -92,21 +100,21 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
       {area.education?.length ? (
         <section>
           <SectionLabel index={index()} label="Eğitim" />
-          <ul className="space-y-2">
+          <ul className="grid gap-2 sm:grid-cols-2">
             {area.education.map((item) => (
-              <li key={item.title} className="text-sm">
+              <li key={item.title}>
                 {item.href ? (
                   <a
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
+                    className="flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm ring-1 ring-foreground/10 transition-colors hover:bg-muted/50"
                   >
-                    {item.title}
-                    <ArrowUpRight className="size-3.5" />
+                    <span>{item.title}</span>
+                    <ArrowUpRight className="size-3.5 shrink-0 text-muted-foreground" />
                   </a>
                 ) : (
-                  item.title
+                  <span className="block px-3 py-2 text-sm">{item.title}</span>
                 )}
               </li>
             ))}
@@ -117,17 +125,17 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
       {area.certificates?.length ? (
         <section>
           <SectionLabel index={index()} label="Sertifikalar" />
-          <ul className="space-y-2">
+          <ul className="grid gap-2 sm:grid-cols-2">
             {area.certificates.map((item) => (
-              <li key={item.href} className="text-sm">
+              <li key={item.href}>
                 <a
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
+                  className="flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm ring-1 ring-foreground/10 transition-colors hover:bg-muted/50"
                 >
-                  {item.title}
-                  <ArrowUpRight className="size-3.5" />
+                  <span>{item.title}</span>
+                  <ArrowUpRight className="size-3.5 shrink-0 text-muted-foreground" />
                 </a>
               </li>
             ))}
@@ -138,9 +146,9 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
       {area.projects?.length ? (
         <section>
           <SectionLabel index={index()} label="Projeler" />
-          <div className="grid gap-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             {area.projects.map((project) => (
-              <Card key={project.title} size="sm">
+              <Card key={project.title} size="sm" className="h-full">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.summary}</CardDescription>
@@ -153,7 +161,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      View Project
+                      Projeyi Aç
                       <ArrowUpRight />
                     </a>
                   </CardFooter>
@@ -207,26 +215,25 @@ export function ExperienceBoard() {
         ))}
       </div>
 
-      <Sheet open={Boolean(active)} onOpenChange={(open) => !open && setActiveId(null)}>
-        <SheetContent
-          side="right"
-          className="w-full gap-0 overflow-y-auto data-[side=right]:sm:max-w-2xl"
-        >
+      <Dialog open={Boolean(active)} onOpenChange={(open) => !open && setActiveId(null)}>
+        <DialogContent className="flex max-h-[min(85dvh,44rem)] w-[min(48rem,calc(100%-1.5rem))] max-w-none flex-col gap-0 overflow-hidden p-0 sm:max-w-3xl">
           {active ? (
             <>
-              <SheetHeader className="border-b pb-4">
-                <SheetTitle className="text-xl">{active.detailTitle}</SheetTitle>
-                <SheetDescription className="text-sm leading-6">
+              <DialogHeader className="shrink-0 border-b px-6 py-5 pr-12 text-left">
+                <DialogTitle className="text-xl leading-tight">
+                  {active.detailTitle}
+                </DialogTitle>
+                <DialogDescription className="text-sm leading-6">
                   {active.summary}
-                </SheetDescription>
-              </SheetHeader>
-              <div className="px-4">
+                </DialogDescription>
+              </DialogHeader>
+              <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
                 <AreaDetail area={active} />
               </div>
             </>
           ) : null}
-        </SheetContent>
-      </Sheet>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
