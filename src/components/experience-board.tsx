@@ -216,7 +216,7 @@ export function ExperienceBoard() {
       </div>
 
       <Dialog open={Boolean(active)} onOpenChange={(open) => !open && setActiveId(null)}>
-        <DialogContent className="flex max-h-[min(85dvh,44rem)] w-[min(48rem,calc(100%-1.5rem))] max-w-none flex-col gap-0 overflow-hidden p-0 sm:max-w-3xl">
+        <DialogContent className="flex max-h-[min(85dvh,44rem)] w-[min(48rem,calc(100%-1.5rem))] max-w-none flex-col gap-0 overflow-hidden bg-background p-0 shadow-2xl sm:max-w-3xl">
           {active ? (
             <>
               <DialogHeader className="shrink-0 border-b px-6 py-5 pr-12 text-left">
