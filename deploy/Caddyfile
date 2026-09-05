@@ -2,6 +2,20 @@
   email erdii.kuss@gmail.com
 }
 
+:80 {
+  @movie host movie.erdikus.me
+  handle @movie {
+    reverse_proxy movie:8501
+  }
+  @crm host crm.erdikus.me
+  handle @crm {
+    reverse_proxy crm:8501
+  }
+  handle {
+    reverse_proxy site:3000
+  }
+}
+
 erdikus.me, www.erdikus.me {
   encode gzip
   reverse_proxy site:3000
