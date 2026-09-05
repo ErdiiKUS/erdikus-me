@@ -1,32 +1,24 @@
 {
-  email erdii.kuss@gmail.com
+	email erdii.kuss@gmail.com
+	auto_https off
+}
+
+http://erdikus.me, http://www.erdikus.me {
+	encode gzip
+	reverse_proxy site:3000
+}
+
+http://movie.erdikus.me {
+	encode gzip
+	reverse_proxy movie:8501
+}
+
+http://crm.erdikus.me {
+	encode gzip
+	reverse_proxy crm:8501
 }
 
 :80 {
-  @movie host movie.erdikus.me
-  handle @movie {
-    reverse_proxy movie:8501
-  }
-  @crm host crm.erdikus.me
-  handle @crm {
-    reverse_proxy crm:8501
-  }
-  handle {
-    reverse_proxy site:3000
-  }
-}
-
-erdikus.me, www.erdikus.me {
-  encode gzip
-  reverse_proxy site:3000
-}
-
-movie.erdikus.me {
-  encode gzip
-  reverse_proxy movie:8501
-}
-
-crm.erdikus.me {
-  encode gzip
-  reverse_proxy crm:8501
+	encode gzip
+	reverse_proxy site:3000
 }
