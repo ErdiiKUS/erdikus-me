@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends git \
 RUN git clone --depth 1 --branch Cursor https://github.com/ErdiiKUS/CRM-Tahminleme-Panosu.git /data
 
 COPY streamlit_app.py ./
+COPY .streamlit ./.streamlit
 
 EXPOSE 8501
 CMD ["streamlit", "run", "streamlit_app.py", "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true"]

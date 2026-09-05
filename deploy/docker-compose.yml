@@ -52,6 +52,8 @@ services:
       PGPASSWORD: ${MOVIE_DB_PASSWORD:-sym_change_me}
       PGDATABASE: selectyourmovie_db
       TMDB_API_KEY: ${TMDB_API_KEY:-}
+      TMDB_PAGES: ${TMDB_PAGES:-10}
+      DUMMY_USER_COUNT: ${DUMMY_USER_COUNT:-120}
     depends_on:
       - movie-db
     expose:

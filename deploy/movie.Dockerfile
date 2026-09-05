@@ -12,4 +12,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends build-essential
 
 COPY . /app
 EXPOSE 8501
-CMD ["streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true"]
+CMD ["sh", "-c", "python -m src.bootstrap && streamlit run app.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true"]
