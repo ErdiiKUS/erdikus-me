@@ -2,7 +2,8 @@ export type ExperienceRole = {
   company: string;
   title: string;
   dates: string;
-  points: string[];
+  points?: string[];
+  tags?: string[];
 };
 
 export type ExperienceProject = {
@@ -69,14 +70,42 @@ export const experienceAreas: ExperienceArea[] = [
       {
         company: "DTL IT LLC",
         title: "Software Support Engineer L2",
-        dates: "2022 — 2025",
-        points: [
-          "SQL ile veri doğrulama ve hata analizi",
-          "REST API testleri",
-          "UAT ve manuel test",
-          "Production issue analizi",
-          "Log analizi ve RCA",
-          "Sistem ve Cloudflare operasyonları",
+        dates: "2022–2025",
+        tags: [
+          "SQL",
+          "REST API",
+          "Postman",
+          "UAT",
+          "Manual Test",
+          "Log Analysis",
+          "RCA",
+          "Production Support",
+        ],
+      },
+      {
+        company: "DNA Call Center",
+        title: "IT Support Specialist",
+        dates: "2014–2016",
+        tags: [
+          "MySQL",
+          "PostgreSQL",
+          "Windows Server",
+          "Active Directory",
+          "System Analysis",
+          "Network",
+        ],
+      },
+      {
+        company: "Özel Atakent Hastanesi",
+        title: "IT Specialist / IT Responsible",
+        dates: "2013–2017",
+        tags: [
+          "Oracle SQL",
+          "HBYS",
+          "Windows Server",
+          "Active Directory",
+          "Network",
+          "Technical Support",
         ],
       },
     ],

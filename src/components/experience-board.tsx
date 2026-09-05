@@ -62,14 +62,24 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
             {area.roles.map((role) => (
               <div key={`${role.company}-${role.title}`} className="space-y-2">
                 <p className="font-heading font-medium">{role.company}</p>
-                <p className="text-sm text-muted-foreground">
-                  {role.title} · {role.dates}
-                </p>
-                <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
-                  {role.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
+                <p className="text-sm text-muted-foreground">{role.title}</p>
+                <p className="text-sm text-muted-foreground">{role.dates}</p>
+                {role.tags?.length ? (
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {role.tags.map((tag) => (
+                      <Badge key={tag} variant="secondary">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                ) : null}
+                {role.points?.length ? (
+                  <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
+                    {role.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
             ))}
           </div>
