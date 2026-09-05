@@ -13,19 +13,19 @@ const actions = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-0 flex-1 items-center justify-start overflow-hidden px-8 sm:px-12">
-      <div className="flex w-full max-w-4xl flex-col items-start gap-8 text-left">
+    <main className="flex min-h-0 flex-1 items-center overflow-hidden">
+      <div className="mx-auto flex w-[70%] flex-col items-center gap-8 text-center">
         <div className="space-y-5">
           <h1 className="font-heading text-5xl font-medium tracking-tight sm:text-6xl">
             Erdi KUŞ
           </h1>
-          <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+          <p className="text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
             E-ticaret, yazılım destek ve test deneyimimi; veri bilimi (ML) ve AI (LLM)
             yetkinliklerimle birleştirerek yapay zekâ ve veri odaklı dijital çözümler
             geliştiriyor, teknik süreçleri iyileştiriyor ve operasyonel değer oluşturuyorum.
           </p>
         </div>
-        <div className="flex flex-wrap justify-start gap-2.5">
+        <div className="flex flex-wrap justify-center gap-2.5">
           {actions.map((action) =>
             action.external ? (
               <a

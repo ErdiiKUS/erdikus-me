@@ -14,25 +14,25 @@ import { cn } from "cn";
 
 export default function ProjelerPage() {
   return (
-    <main className="flex min-h-0 flex-1 flex-col overflow-hidden px-8 py-5 sm:px-12">
-      <div className="flex w-full items-start">
+    <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
+      <div className="mx-auto flex w-[70%] justify-center pt-5">
         <HomeLink />
       </div>
       <div className="flex min-h-0 flex-1 items-center justify-center">
-        <div className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="mx-auto grid w-[70%] grid-cols-1 gap-4 sm:grid-cols-3">
           {projects.map((project) => {
             const Icon = project.icon;
             return (
-              <Card key={project.title} size="sm" className="justify-between">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
+              <Card key={project.title} size="sm" className="justify-between text-center">
+                <CardHeader className="items-center">
+                  <div className="flex w-full items-center justify-between">
                     <Icon className="size-4" />
                     <Badge variant="secondary">{project.badge}</Badge>
                   </div>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
-                <CardFooter className="justify-start gap-2 border-t-0 bg-transparent">
+                <CardFooter className="justify-center gap-2 border-t-0 bg-transparent">
                   <a
                     className={cn(buttonVariants({ size: "sm" }))}
                     href={project.href}

@@ -1,7 +1,7 @@
 export function SiteFooter() {
   return (
-    <footer className="shrink-0 px-8 py-4 text-left sm:px-12">
-      <p className="text-xs text-muted-foreground">
+    <footer className="shrink-0 py-4">
+      <p className="mx-auto w-[70%] text-right text-xs text-muted-foreground">
         erdikus.me · {new Date().getFullYear()}
       </p>
     </footer>
