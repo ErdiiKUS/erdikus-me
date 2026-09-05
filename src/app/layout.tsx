@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://erdikus.me"),
-  title: "Erdi Kuş — IT, e-ticaret ve ürün geliştirme",
+  title: "Erdi KUŞ",
   description:
-    "IT altyapısı, e-ticaret operasyonu ve yazılım destek süreçlerinde 10+ yıl deneyim. Projeler: PillTrack, SelectYourMovie, CRM Tahminleme.",
+    "E-ticaret, yazılım test ve destek deneyimini; veri bilimi (ML) ve AI (LLM) yetkinlikleriyle birleştirerek yapay zekâ ve veri odaklı dijital çözümler geliştiriyor.",
   openGraph: {
-    title: "Erdi Kuş",
-    description: "IT, e-ticaret ve ürün geliştirme",
+    title: "Erdi KUŞ",
+    description: "Yapay zekâ ve veri odaklı dijital çözümler",
     url: "https://erdikus.me",
     siteName: "erdikus.me",
     locale: "tr_TR",
@@ -31,9 +31,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="tr"
-      className={`dark ${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} h-dvh overflow-hidden antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">{children}</body>
+      <body className="flex h-dvh overflow-hidden flex-col bg-background font-sans text-foreground">
+        {children}
+      </body>
     </html>
   );
 }
