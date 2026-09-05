@@ -156,19 +156,19 @@ export const experienceAreas: ExperienceArea[] = [
     ],
     certificates: [
       {
-        title: "Sertifika 01",
+        title: "E-Ticaret Uzman Eğitmenlik Sertifikası",
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488466647/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
       {
-        title: "Sertifika 02",
+        title: "E-İhracat Uzman Eğitmen Sertifikası",
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488378798/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
       {
-        title: "Sertifika 03",
+        title: "E-İhracat Uzmanlığı",
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488215175/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
       {
-        title: "Sertifika 04",
+        title: "E-Ticaret Uzmanlığı",
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488075456/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
     ],
