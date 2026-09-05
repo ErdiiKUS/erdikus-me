@@ -31,10 +31,13 @@ function SectionLabel({ index, label }: { index: string; label: string }) {
 }
 
 function AreaDetail({ area }: { area: ExperienceArea }) {
+  let section = 1;
+  const index = () => String(section++).padStart(2, "0");
+
   return (
     <div className="space-y-8 pb-8">
       <section>
-        <SectionLabel index="01" label="Yetkinlikler" />
+        <SectionLabel index={index()} label="Yetkinlikler" />
         <ul className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
           {area.skills.map((skill) => (
             <li key={skill} className="text-sm text-muted-foreground">
@@ -45,7 +48,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
       </section>
 
       <section>
-        <SectionLabel index="02" label="Teknolojiler" />
+        <SectionLabel index={index()} label="Teknolojiler" />
         <div className="flex flex-wrap gap-1.5">
           {area.technologies.map((tech) => (
             <Badge key={tech} variant="secondary">
@@ -57,7 +60,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
 
       {area.roles?.length ? (
         <section>
-          <SectionLabel index="03" label="Profesyonel Deneyim" />
+          <SectionLabel index={index()} label="Profesyonel Deneyim" />
           <div className="space-y-5">
             {area.roles.map((role) => (
               <div key={`${role.company}-${role.title}`} className="space-y-2">
@@ -88,7 +91,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
 
       {area.education?.length ? (
         <section>
-          <SectionLabel index={area.roles?.length ? "04" : "03"} label="Eğitim" />
+          <SectionLabel index={index()} label="Eğitim" />
           <ul className="space-y-2">
             {area.education.map((item) => (
               <li key={item.title} className="text-sm">
@@ -111,12 +114,30 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
         </section>
       ) : null}
 
+      {area.certificates?.length ? (
+        <section>
+          <SectionLabel index={index()} label="Sertifikalar" />
+          <ul className="space-y-2">
+            {area.certificates.map((item, i) => (
+              <li key={item.href} className="text-sm">
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
+                >
+                  {item.title} {String(i + 1).padStart(2, "0")}
+                  <ArrowUpRight className="size-3.5" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {area.projects?.length ? (
         <section>
-          <SectionLabel
-            index={area.roles?.length || area.education?.length ? "04" : "03"}
-            label="Projeler"
-          />
+          <SectionLabel index={index()} label="Projeler" />
           <div className="grid gap-3">
             {area.projects.map((project) => (
               <Card key={project.title} size="sm">

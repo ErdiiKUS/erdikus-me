@@ -24,6 +24,7 @@ export type ExperienceArea = {
   roles?: ExperienceRole[];
   projects?: ExperienceProject[];
   education?: { title: string; href?: string }[];
+  certificates?: { title: string; href: string }[];
 };
 
 export const experienceIntro =
@@ -151,6 +152,24 @@ export const experienceAreas: ExperienceArea[] = [
           "SQL ile satış ve operasyon raporlama",
           "7/24 sistem sürekliliği",
         ],
+      },
+    ],
+    certificates: [
+      {
+        title: "Sertifika",
+        href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488466647/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
+      },
+      {
+        title: "Sertifika",
+        href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488378798/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
+      },
+      {
+        title: "Sertifika",
+        href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488215175/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
+      },
+      {
+        title: "Sertifika",
+        href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488075456/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
     ],
   },
