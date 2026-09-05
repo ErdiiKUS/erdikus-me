@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,7 +35,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`dark ${geistSans.variable} ${geistMono.variable} h-dvh overflow-hidden antialiased`}
     >
       <body className="flex h-dvh overflow-hidden flex-col bg-background font-sans text-foreground">
-        {children}
+        <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   );

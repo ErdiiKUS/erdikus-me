@@ -13,19 +13,19 @@ const actions = [
 
 export default function Home() {
   return (
-    <main className="flex h-dvh items-center justify-center overflow-hidden px-6">
-      <div className="flex w-full max-w-xl flex-col gap-6">
-        <div className="space-y-3">
-          <h1 className="font-heading text-4xl font-medium tracking-tight sm:text-5xl">
+    <main className="flex min-h-0 flex-1 items-center justify-center overflow-hidden px-8 sm:px-12">
+      <div className="flex w-full max-w-4xl flex-col gap-8">
+        <div className="space-y-5">
+          <h1 className="font-heading text-5xl font-medium tracking-tight sm:text-6xl">
             Erdi KUŞ
           </h1>
-          <p className="text-sm leading-6 text-muted-foreground sm:text-[0.925rem] sm:leading-7">
+          <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
             E-ticaret, yazılım test ve destek deneyimimi; veri bilimi (ML) ve AI (LLM)
             yetkinliklerimle birleştirerek yapay zekâ ve veri odaklı dijital çözümler
             geliştiriyor, teknik süreçleri iyileştiriyor ve operasyonel değer oluşturuyorum.
           </p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2.5">
           {actions.map((action) =>
             action.external ? (
               <a
@@ -33,7 +33,7 @@ export default function Home() {
                 href={action.href}
                 target="_blank"
                 rel="noreferrer"
-                className={cn(buttonVariants({ variant: "outline" }))}
+                className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
               >
                 {action.label}
                 <ArrowUpRight />
@@ -42,7 +42,12 @@ export default function Home() {
               <Link
                 key={action.label}
                 href={action.href}
-                className={cn(buttonVariants({ variant: action.label === "Deneyim" ? "default" : "outline" }))}
+                className={cn(
+                  buttonVariants({
+                    variant: action.label === "Deneyim" ? "default" : "outline",
+                    size: "lg",
+                  }),
+                )}
               >
                 {action.label}
               </Link>
