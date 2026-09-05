@@ -1,0 +1,18 @@
+{
+  email erdii.kuss@gmail.com
+}
+
+erdikus.me, www.erdikus.me {
+  encode gzip
+  reverse_proxy site:3000
+}
+
+movie.erdikus.me {
+  encode gzip
+  reverse_proxy movie:8501
+}
+
+crm.erdikus.me {
+  encode gzip
+  reverse_proxy crm:8501
+}
