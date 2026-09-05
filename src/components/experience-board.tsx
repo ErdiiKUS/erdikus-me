@@ -19,7 +19,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { experienceAreas, type ExperienceArea } from "@/lib/experience";
+import type { ExperienceArea } from "@/lib/experience";
+import type { Copy } from "@/lib/copy";
 import { cn } from "cn";
 
 function SectionLabel({ index, label }: { index: string; label: string }) {
@@ -33,14 +34,20 @@ function SectionLabel({ index, label }: { index: string; label: string }) {
   );
 }
 
-function AreaDetail({ area }: { area: ExperienceArea }) {
+function AreaDetail({
+  area,
+  labels,
+}: {
+  area: ExperienceArea;
+  labels: Copy["sections"] & { viewDetails: string; openProject: string };
+}) {
   let section = 1;
   const index = () => String(section++).padStart(2, "0");
 
   return (
     <div className="space-y-7">
       <section>
-        <SectionLabel index={index()} label="Yetkinlikler" />
+        <SectionLabel index={index()} label={labels.skills} />
         <div className="flex flex-wrap gap-1.5">
           {area.skills.map((skill) => (
             <Badge key={skill} variant="outline">
@@ -51,7 +58,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
       </section>
 
       <section>
-        <SectionLabel index={index()} label="Teknolojiler" />
+        <SectionLabel index={index()} label={labels.technologies} />
         <div className="flex flex-wrap gap-1.5">
           {area.technologies.map((tech) => (
             <Badge key={tech} variant="secondary">
@@ -63,7 +70,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
 
       {area.roles?.length ? (
         <section>
-          <SectionLabel index={index()} label="Profesyonel Deneyim" />
+          <SectionLabel index={index()} label={labels.experience} />
           <div className="grid gap-3">
             {area.roles.map((role) => (
               <div
@@ -99,7 +106,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
 
       {area.education?.length ? (
         <section>
-          <SectionLabel index={index()} label="Eğitim" />
+          <SectionLabel index={index()} label={labels.education} />
           <ul className="grid gap-2 sm:grid-cols-2">
             {area.education.map((item) => (
               <li key={item.title}>
@@ -124,7 +131,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
 
       {area.certificates?.length ? (
         <section>
-          <SectionLabel index={index()} label="Sertifikalar" />
+          <SectionLabel index={index()} label={labels.certificates} />
           <ul className="grid gap-2 sm:grid-cols-2">
             {area.certificates.map((item) => (
               <li key={item.href}>
@@ -145,7 +152,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
 
       {area.projects?.length ? (
         <section>
-          <SectionLabel index={index()} label="Projeler" />
+          <SectionLabel index={index()} label={labels.projects} />
           <div className="grid gap-3 sm:grid-cols-2">
             {area.projects.map((project) => (
               <Card key={project.title} size="sm" className="h-full">
@@ -161,7 +168,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Projeyi Aç
+                      {labels.openProject}
                       <ArrowUpRight />
                     </a>
                   </CardFooter>
@@ -175,14 +182,20 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
   );
 }
 
-export function ExperienceBoard() {
+export function ExperienceBoard({
+  areas,
+  labels,
+}: {
+  areas: ExperienceArea[];
+  labels: Copy["sections"] & { viewDetails: string; openProject: string };
+}) {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const active = experienceAreas.find((area) => area.id === activeId) ?? null;
+  const active = areas.find((area) => area.id === activeId) ?? null;
 
   return (
     <>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
-        {experienceAreas.map((area) => (
+        {areas.map((area) => (
           <Card
             key={area.id}
             size="sm"
@@ -209,7 +222,7 @@ export function ExperienceBoard() {
               ))}
             </CardContent>
             <CardFooter className="border-t-0 bg-transparent">
-              <span className="text-xs text-muted-foreground">Detayları Gör →</span>
+              <span className="text-xs text-muted-foreground">{labels.viewDetails}</span>
             </CardFooter>
           </Card>
         ))}
@@ -228,7 +241,7 @@ export function ExperienceBoard() {
                 </DialogDescription>
               </DialogHeader>
               <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
-                <AreaDetail area={active} />
+                <AreaDetail area={active} labels={labels} />
               </div>
             </>
           ) : null}

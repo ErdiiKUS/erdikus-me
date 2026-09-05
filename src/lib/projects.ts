@@ -1,40 +1,49 @@
 import { Film, LineChart, Pill } from "lucide-react";
+import type { Locale } from "@/lib/i18n";
 
-export const projectsIntro =
-  "Veri analitiği, makine öğrenmesi, yapay zekâ, e-ticaret ve yazılım geliştirme alanlarında hazırladığım projeleri burada paylaşıyorum. Her projede gerçek bir problemi analiz etmeye, uygun teknolojileri kullanarak çözüm geliştirmeye ve ortaya çıkan sonucu ölçülebilir, sürdürülebilir bir yapıya dönüştürmeye odaklanıyorum.";
+export function getProjects(locale: Locale) {
+  const en = locale === "en";
+  const t = (tr: string, english: string) => (en ? english : tr);
 
-export const projects = [
-  {
-    title: "SelectYourMovie",
-    badge: "Canlı",
-    icon: Film,
-    description:
-      "İçerik, kullanıcı ve hibrit modellerle film öneren Streamlit uygulaması.",
-    href: "https://movie.erdikus.me",
-    secondary: {
-      label: "GitHub",
-      href: "https://github.com/ErdiiKUS/selectyourmovie",
+  return [
+    {
+      title: "SelectYourMovie",
+      badgeKey: "live" as const,
+      icon: Film,
+      description: t(
+        "İçerik, kullanıcı ve hibrit modellerle film öneren Streamlit uygulaması.",
+        "A Streamlit app that recommends films with content, user and hybrid models.",
+      ),
+      href: "https://movie.erdikus.me",
+      secondary: {
+        label: "GitHub",
+        href: "https://github.com/ErdiiKUS/selectyourmovie",
+      },
     },
-  },
-  {
-    title: "CRM Tahminleme",
-    badge: "Canlı",
-    icon: LineChart,
-    description:
-      "Online Retail II üzerinde RFM, CLTV, churn ve Apriori çapraz satış panosu.",
-    href: "https://crm.erdikus.me",
-    secondary: {
-      label: "GitHub",
-      href: "https://github.com/ErdiiKUS/CRM-Tahminleme-Panosu",
+    {
+      title: t("CRM Tahminleme", "CRM Forecasting"),
+      badgeKey: "live" as const,
+      icon: LineChart,
+      description: t(
+        "Online Retail II üzerinde RFM, CLTV, churn ve Apriori çapraz satış panosu.",
+        "RFM, CLTV, churn and Apriori cross-sell dashboard on Online Retail II.",
+      ),
+      href: "https://crm.erdikus.me",
+      secondary: {
+        label: "GitHub",
+        href: "https://github.com/ErdiiKUS/CRM-Tahminleme-Panosu",
+      },
     },
-  },
-  {
-    title: "PillTrack",
-    badge: "App Store",
-    icon: Pill,
-    description:
-      "İlaç hatırlatma uygulaması. App Store’da yayında; web: pilltrack.co.",
-    href: "https://apps.apple.com/tr/app/pilltrack-medication-reminder/id6761114352?l=tr",
-    secondary: { label: "pilltrack.co", href: "https://pilltrack.co/" },
-  },
-] as const;
+    {
+      title: "PillTrack",
+      badgeKey: "appStore" as const,
+      icon: Pill,
+      description: t(
+        "İlaç hatırlatma uygulaması. App Store’da yayında; web: pilltrack.co.",
+        "Medication reminder app. Live on the App Store; web: pilltrack.co.",
+      ),
+      href: "https://apps.apple.com/tr/app/pilltrack-medication-reminder/id6761114352?l=tr",
+      secondary: { label: "pilltrack.co", href: "https://pilltrack.co/" },
+    },
+  ];
+}

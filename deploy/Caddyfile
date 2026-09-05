@@ -5,7 +5,11 @@
 
 http://erdikus.me, http://www.erdikus.me {
 	encode gzip
-	reverse_proxy site:3000
+	reverse_proxy site:3000 {
+		header_up CF-IPCountry {http.request.header.CF-IPCountry}
+		header_up X-Forwarded-Proto https
+		header_up X-Forwarded-Host {host}
+	}
 }
 
 http://movie.erdikus.me {
@@ -26,5 +30,7 @@ http://crm.erdikus.me {
 
 :80 {
 	encode gzip
-	reverse_proxy site:3000
+	reverse_proxy site:3000 {
+		header_up CF-IPCountry {http.request.header.CF-IPCountry}
+	}
 }

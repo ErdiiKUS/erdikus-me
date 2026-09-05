@@ -1,17 +1,22 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { getCopy } from "@/lib/copy";
+import { getLocale } from "@/lib/get-locale";
 import { cn } from "cn";
 
-const actions = [
-  { label: "Deneyim", href: "/deneyim", external: false },
-  { label: "Projeler", href: "/projeler", external: false },
-  { label: "GitHub", href: "https://github.com/ErdiiKUS", external: true },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/erdi-kus/", external: true },
-  { label: "Medium", href: "https://medium.com/@erdii.kuss", external: true },
-];
+export default async function Home() {
+  const locale = await getLocale();
+  const copy = getCopy(locale);
 
-export default function Home() {
+  const actions = [
+    { label: copy.nav.experience, href: "/deneyim", external: false },
+    { label: copy.nav.projects, href: "/projeler", external: false },
+    { label: "GitHub", href: "https://github.com/ErdiiKUS", external: true },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/erdi-kus/", external: true },
+    { label: "Medium", href: "https://medium.com/@erdii.kuss", external: true },
+  ];
+
   return (
     <main className="flex min-h-0 flex-1 items-center overflow-hidden">
       <div className="mx-auto flex w-[70%] flex-col gap-8">
@@ -20,9 +25,7 @@ export default function Home() {
             Erdi KUŞ
           </h1>
           <p className="text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-            E-ticaret, yazılım destek ve test deneyimimi; veri bilimi (ML) ve AI (LLM)
-            yetkinliklerimle birleştirerek yapay zekâ ve veri odaklı dijital çözümler
-            geliştiriyor, teknik süreçleri iyileştiriyor ve operasyonel değer oluşturuyorum.
+            {copy.homeBio}
           </p>
         </div>
         <div className="flex flex-wrap justify-end gap-2.5">
@@ -44,7 +47,7 @@ export default function Home() {
                 href={action.href}
                 className={cn(
                   buttonVariants({
-                    variant: action.label === "Deneyim" ? "default" : "outline",
+                    variant: action.href === "/deneyim" ? "default" : "outline",
                     size: "lg",
                   }),
                 )}
