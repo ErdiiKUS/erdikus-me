@@ -118,7 +118,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
         <section>
           <SectionLabel index={index()} label="Sertifikalar" />
           <ul className="space-y-2">
-            {area.certificates.map((item, i) => (
+            {area.certificates.map((item) => (
               <li key={item.href} className="text-sm">
                 <a
                   href={item.href}
@@ -126,7 +126,7 @@ function AreaDetail({ area }: { area: ExperienceArea }) {
                   rel="noreferrer"
                   className="inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
                 >
-                  {item.title} {String(i + 1).padStart(2, "0")}
+                  {item.title}
                   <ArrowUpRight className="size-3.5" />
                 </a>
               </li>

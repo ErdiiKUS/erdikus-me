@@ -156,19 +156,19 @@ export const experienceAreas: ExperienceArea[] = [
     ],
     certificates: [
       {
-        title: "Sertifika",
+        title: "Sertifika 01",
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488466647/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
       {
-        title: "Sertifika",
+        title: "Sertifika 02",
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488378798/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
       {
-        title: "Sertifika",
+        title: "Sertifika 03",
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488215175/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
       {
-        title: "Sertifika",
+        title: "Sertifika 04",
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488075456/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
     ],
@@ -214,11 +214,37 @@ export const experienceAreas: ExperienceArea[] = [
       },
       {
         title: "Miuul CRM Analytics",
-        href: "https://www.linkedin.com/posts/erdi-kus_datascience-python-powerbi-activity-7485289654548844544-E29k",
+        href: "https://learning.miuul.com/certificates/mbtwipg78t",
       },
       {
         title: "Business Analysis Fundamentals — Microsoft",
         href: "https://coursera.org/account/accomplishments/records/DO27MXSBB3YV",
+      },
+    ],
+    certificates: [
+      {
+        title: "Machine Learning — Miuul",
+        href: "https://learning.miuul.com/certificates/uv25hocikq",
+      },
+      {
+        title: "Querying MS SQL — Miuul",
+        href: "https://learning.miuul.com/certificates/xbz5h7swgj",
+      },
+      {
+        title: "Feature Engineering — Miuul",
+        href: "https://learning.miuul.com/certificates/tovfpqe0ak",
+      },
+      {
+        title: "Recommendation Systems — Miuul",
+        href: "https://learning.miuul.com/certificates/567iquizll",
+      },
+      {
+        title: "Python Programming for Data Science — Miuul",
+        href: "https://learning.miuul.com/certificates/loizpdi0pa",
+      },
+      {
+        title: "CRM Analytics — Miuul",
+        href: "https://learning.miuul.com/certificates/mbtwipg78t",
       },
     ],
     projects: [
