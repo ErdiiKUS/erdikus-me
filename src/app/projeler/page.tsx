@@ -9,21 +9,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { HomeLink } from "@/components/home-link";
-import { projects } from "@/lib/projects";
+import { projects, projectsIntro } from "@/lib/projects";
 import { cn } from "cn";
 
 export default function ProjelerPage() {
   return (
     <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
-      <div className="mx-auto flex w-[70%] justify-center pt-5">
+      <div className="mx-auto flex w-[70%] justify-center pt-4">
         <HomeLink />
       </div>
-      <div className="flex min-h-0 flex-1 items-center justify-center">
-        <div className="mx-auto flex w-[70%] flex-col gap-5">
-          <h1 className="font-heading text-left text-3xl font-medium tracking-tight sm:text-4xl">
+      <div className="mx-auto flex min-h-0 w-[70%] flex-1 flex-col justify-center gap-8 overflow-hidden py-3">
+        <div className="w-full space-y-5 text-left">
+          <h1 className="font-heading text-5xl font-medium tracking-tight sm:text-6xl">
             Projeler
           </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <p className="text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+            {projectsIntro}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {projects.map((project) => {
             const Icon = project.icon;
             return (
@@ -58,7 +62,6 @@ export default function ProjelerPage() {
               </Card>
             );
           })}
-          </div>
         </div>
       </div>
     </main>
