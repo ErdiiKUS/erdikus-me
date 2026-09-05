@@ -1,0 +1,242 @@
+export type ExperienceRole = {
+  company: string;
+  title: string;
+  dates: string;
+  points: string[];
+};
+
+export type ExperienceProject = {
+  title: string;
+  summary: string;
+  href?: string;
+};
+
+export type ExperienceArea = {
+  id: string;
+  title: string;
+  teaser: string;
+  tags: string[];
+  detailTitle: string;
+  summary: string;
+  skills: string[];
+  technologies: string[];
+  roles?: ExperienceRole[];
+  projects?: ExperienceProject[];
+  education?: { title: string; href?: string }[];
+};
+
+export const experienceIntro =
+  "E-ticaret, yazılım destek ve test alanlarında edindiğim profesyonel deneyimi; veri analitiği, veri bilimi ve yapay zekâ alanlarında geliştirdiğim teknik yetkinliklerle birleştiriyorum. İş deneyimlerim ve projelerimde SQL, API entegrasyonları, Python, makine öğrenmesi, LLM ve modern yazılım araçlarını kullanarak veri odaklı çözümler üretmeye ve teknik süreçleri iyileştirmeye odaklanıyorum.";
+
+export const experienceAreas: ExperienceArea[] = [
+  {
+    id: "software-support",
+    title: "L2 Yazılım Destek & Test",
+    teaser: "Production sistemler, SQL, API testleri, log analizi ve hata çözüm süreçleri.",
+    tags: ["SQL", "REST API", "Postman", "UAT", "RCA"],
+    detailTitle: "L2 Yazılım Destek & Test",
+    summary:
+      "Kurumsal ve production ortamlarında uygulama desteği, hata analizi, API testleri ve veri doğrulama süreçlerinde görev aldım. SQL sorguları, log analizi ve REST API kontrolleri kullanarak uygulama ve entegrasyon kaynaklı sorunların kök nedenlerini analiz ettim; geliştirme ekipleriyle çözüm ve doğrulama süreçlerini yürüttüm.",
+    skills: [
+      "L2 Application Support",
+      "Production Support",
+      "Manual Testing",
+      "UAT",
+      "API Testing",
+      "SQL Data Validation",
+      "Root Cause Analysis",
+      "Log Analysis",
+      "Incident / Issue Analysis",
+      "Integration Troubleshooting",
+    ],
+    technologies: [
+      "SQL Server",
+      "PostgreSQL",
+      "MySQL",
+      "Oracle SQL",
+      "REST API",
+      "Postman",
+      "JSON",
+      "XML",
+      "SOAP",
+      "Linux",
+      "Docker",
+      "Nginx",
+      "Cloudflare",
+      "Git",
+    ],
+    roles: [
+      {
+        company: "DTL IT LLC",
+        title: "Software Support Engineer L2",
+        dates: "2022 — 2025",
+        points: [
+          "SQL ile veri doğrulama ve hata analizi",
+          "REST API testleri",
+          "UAT ve manuel test",
+          "Production issue analizi",
+          "Log analizi ve RCA",
+          "Sistem ve Cloudflare operasyonları",
+        ],
+      },
+    ],
+  },
+  {
+    id: "ecommerce",
+    title: "E-Ticaret",
+    teaser: "E-ticaret altyapıları, operasyon, ödeme ve kargo entegrasyonları ile veri analitiği.",
+    tags: ["Operations", "API", "Data"],
+    detailTitle: "E-Ticaret & Dijital Operasyonlar",
+    summary:
+      "E-ticaret altyapıları, operasyon yönetimi, ödeme ve kargo entegrasyonları ile veri analitiği süreçlerinde profesyonel deneyim.",
+    skills: [
+      "E-Commerce Operations",
+      "E-Commerce Infrastructure",
+      "Payment Systems",
+      "Cargo Integrations",
+      "API Integrations",
+      "Customer & Operations Management",
+      "Sales Data Analysis",
+      "Reporting",
+      "System Continuity",
+    ],
+    technologies: [
+      "SQL",
+      "REST API",
+      "Cloudflare",
+      "Linux",
+      "MySQL",
+      "PostgreSQL",
+      "E-Commerce Platforms",
+      "Google Ads",
+      "Meta Ads",
+    ],
+    roles: [
+      {
+        company: "Elektromarketim",
+        title: "E-Ticaret & Sistem Yöneticisi",
+        dates: "2017 — 2022",
+        points: [
+          "E-ticaret operasyonlarının yönetimi",
+          "Ödeme, kargo ve API entegrasyonları",
+          "SQL ile satış ve operasyon raporlama",
+          "7/24 sistem sürekliliği",
+        ],
+      },
+    ],
+  },
+  {
+    id: "data-science",
+    title: "Veri Analizi & Veri Bilimi",
+    teaser: "Python, ML, CRM analytics, tahminleme ve öneri sistemleri.",
+    tags: ["Python", "ML", "SQL"],
+    detailTitle: "Veri Analizi & Veri Bilimi",
+    summary:
+      "Python ve SQL kullanarak veri analizi, müşteri analitiği, makine öğrenmesi ve tahminleme problemleri üzerinde çalışıyorum.",
+    skills: [
+      "Exploratory Data Analysis",
+      "Data Cleaning",
+      "Feature Engineering",
+      "Machine Learning",
+      "Classification",
+      "Regression",
+      "Recommendation Systems",
+      "CRM Analytics",
+      "RFM",
+      "CLTV",
+      "BG/NBD",
+      "Gamma-Gamma",
+      "Association Rule Learning",
+      "Data Visualization",
+    ],
+    technologies: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "SQL",
+      "Power BI",
+      "Jupyter",
+      "Git",
+    ],
+    education: [
+      {
+        title: "Miuul Data Science Bootcamp",
+        href: "https://miuul.com/bootcamps/data-scientist-bootcamp",
+      },
+      {
+        title: "Miuul CRM Analytics",
+        href: "https://www.linkedin.com/posts/erdi-kus_datascience-python-powerbi-activity-7485289654548844544-E29k",
+      },
+      {
+        title: "Business Analysis Fundamentals — Microsoft",
+        href: "https://coursera.org/account/accomplishments/records/DO27MXSBB3YV",
+      },
+    ],
+    projects: [
+      {
+        title: "SelectYourMovie",
+        summary: "Machine Learning Recommendation System",
+        href: "https://movie.erdikus.me",
+      },
+      {
+        title: "CRM Analytics",
+        summary: "RFM • CLTV • BG/NBD • Gamma-Gamma",
+        href: "https://crm.erdikus.me",
+      },
+      {
+        title: "Fraud Detection",
+        summary: "Classification • Precision/Recall • Imbalanced Data",
+      },
+      {
+        title: "Association Rule Learning",
+        summary: "Apriori • Recommendation",
+        href: "https://crm.erdikus.me",
+      },
+    ],
+  },
+  {
+    id: "ai-projects",
+    title: "AI & Software Projects",
+    teaser: "LLM, AI destekli geliştirme ve otomasyon ile uygulama ve prototipler.",
+    tags: ["LLM", "n8n", "AI"],
+    detailTitle: "AI & Software Projects",
+    summary:
+      "LLM, AI destekli geliştirme ve otomasyon araçlarını kullanarak gerçek problemlere yönelik uygulamalar ve prototipler geliştiriyorum.",
+    skills: [
+      "LLM Applications",
+      "Prompt Engineering",
+      "AI-assisted Development",
+      "AI Agents",
+      "Workflow Automation",
+      "API Integration",
+      "Generative AI",
+    ],
+    technologies: [
+      "OpenAI",
+      "LLM",
+      "n8n",
+      "Cursor",
+      "Python",
+      "Node.js",
+      "REST API",
+      "Git",
+      "Docker",
+    ],
+    projects: [
+      {
+        title: "PillTrack",
+        summary: "AI-assisted application development • Cursor",
+        href: "https://pilltrack.co/",
+      },
+      {
+        title: "E-Commerce AI/Data Platform",
+        summary: "Analytics + Automation + AI",
+      },
+      {
+        title: "AI Agent Experiments",
+        summary: "LLM + n8n + APIs",
+      },
+    ],
+  },
+];
