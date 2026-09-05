@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://erdikus.me"),
   title: "Erdi KUŞ",
   description:
-    "E-ticaret, yazılım test ve destek deneyimini; veri bilimi (ML) ve AI (LLM) yetkinlikleriyle birleştirerek yapay zekâ ve veri odaklı dijital çözümler geliştiriyor.",
+    "E-ticaret, yazılım destek ve test deneyimini; veri bilimi (ML) ve AI (LLM) yetkinlikleriyle birleştirerek yapay zekâ ve veri odaklı dijital çözümler geliştiriyor.",
   openGraph: {
     title: "Erdi KUŞ",
     description: "Yapay zekâ ve veri odaklı dijital çözümler",

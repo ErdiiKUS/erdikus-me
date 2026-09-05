@@ -15,13 +15,15 @@ import { cn } from "cn";
 export default function ProjelerPage() {
   return (
     <main className="flex min-h-0 flex-1 flex-col overflow-hidden px-8 py-5 sm:px-12">
-      <div className="mx-auto flex h-full w-full max-w-6xl min-h-0 flex-col gap-5">
+      <div className="flex w-full items-start">
         <HomeLink />
-        <div className="grid min-h-0 flex-1 grid-cols-1 gap-3 md:grid-cols-3">
+      </div>
+      <div className="flex min-h-0 flex-1 items-center justify-center">
+        <div className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
           {projects.map((project) => {
             const Icon = project.icon;
             return (
-              <Card key={project.title} size="sm" className="h-full justify-between">
+              <Card key={project.title} size="sm" className="justify-between">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <Icon className="size-4" />
@@ -30,7 +32,7 @@ export default function ProjelerPage() {
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
-                <CardFooter className="gap-2 border-t-0 bg-transparent">
+                <CardFooter className="justify-start gap-2 border-t-0 bg-transparent">
                   <a
                     className={cn(buttonVariants({ size: "sm" }))}
                     href={project.href}
