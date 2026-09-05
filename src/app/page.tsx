@@ -14,8 +14,8 @@ const actions = [
 export default function Home() {
   return (
     <main className="flex min-h-0 flex-1 items-center overflow-hidden">
-      <div className="mx-auto flex w-[70%] flex-col items-center gap-8 text-center">
-        <div className="space-y-5">
+      <div className="mx-auto flex w-[70%] flex-col items-end gap-8 text-right">
+        <div className="w-full space-y-5">
           <h1 className="font-heading text-5xl font-medium tracking-tight sm:text-6xl">
             Erdi KUŞ
           </h1>
@@ -25,7 +25,7 @@ export default function Home() {
             geliştiriyor, teknik süreçleri iyileştiriyor ve operasyonel değer oluşturuyorum.
           </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-2.5">
+        <div className="flex flex-wrap justify-end gap-2.5">
           {actions.map((action) =>
             action.external ? (
               <a
