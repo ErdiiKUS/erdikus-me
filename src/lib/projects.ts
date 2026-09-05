@@ -1,7 +1,7 @@
 import { Film, LineChart, Pill } from "lucide-react";
 
 export const projectsIntro =
-  "Makine öğrenmesi, müşteri analitiği ve yapay zekâ destekli geliştirme ile ürettiğim uygulamaları burada paylaşıyorum. SelectYourMovie, CRM Tahminleme ve PillTrack; veri odaklı çözümlerimi canlı ürün ve açık kaynak olarak sergiliyor.";
+  "Veri analitiği, makine öğrenmesi, yapay zekâ, e-ticaret ve yazılım geliştirme alanlarında hazırladığım projeleri burada paylaşıyorum. Her projede gerçek bir problemi analiz etmeye, uygun teknolojileri kullanarak çözüm geliştirmeye ve ortaya çıkan sonucu ölçülebilir, sürdürülebilir bir yapıya dönüştürmeye odaklanıyorum.";
 
 export const projects = [
   {
