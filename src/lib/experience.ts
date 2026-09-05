@@ -113,10 +113,10 @@ export const experienceAreas: ExperienceArea[] = [
   },
   {
     id: "ecommerce",
-    title: "E-Ticaret",
+    title: "E-Ticaret ve Operasyon Uzmanı",
     teaser: "E-ticaret altyapıları, operasyon, ödeme ve kargo entegrasyonları ile veri analitiği.",
     tags: ["Operations", "API", "Data"],
-    detailTitle: "E-Ticaret & Dijital Operasyonlar",
+    detailTitle: "E-Ticaret ve Operasyon Uzmanı",
     summary:
       "E-ticaret altyapıları, operasyon yönetimi, ödeme ve kargo entegrasyonları ile veri analitiği süreçlerinde profesyonel deneyim.",
     skills: [
