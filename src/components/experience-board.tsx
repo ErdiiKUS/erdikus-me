@@ -141,7 +141,7 @@ export function ExperienceBoard() {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {experienceAreas.map((area) => (
           <Card
             key={area.id}
@@ -155,22 +155,22 @@ export function ExperienceBoard() {
                 setActiveId(area.id);
               }
             }}
-            className="h-full cursor-pointer text-left transition-colors hover:bg-muted/40"
+            className="h-full min-h-0 cursor-pointer text-left transition-colors hover:bg-muted/40"
           >
-              <CardHeader>
-                <CardTitle className="uppercase">{area.title}</CardTitle>
-                <CardDescription>{area.teaser}</CardDescription>
-                <div className="flex flex-wrap gap-1 pt-2">
-                  {area.tags.map((tag) => (
-                    <Badge key={tag} variant="outline">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardHeader>
-              <CardFooter className="border-t-0 bg-transparent">
-                <span className="text-xs text-muted-foreground">Detayları Gör →</span>
-              </CardFooter>
+            <CardHeader className="flex-1">
+              <CardTitle className="text-base leading-snug">{area.title}</CardTitle>
+              <CardDescription className="leading-5">{area.teaser}</CardDescription>
+              <div className="flex flex-col items-start gap-1 pt-2">
+                {area.tags.map((tag) => (
+                  <Badge key={tag} variant="outline">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </CardHeader>
+            <CardFooter className="border-t-0 bg-transparent">
+              <span className="text-xs text-muted-foreground">Detayları Gör →</span>
+            </CardFooter>
           </Card>
         ))}
       </div>
