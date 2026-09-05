@@ -172,6 +172,13 @@ export const experienceAreas: ExperienceArea[] = [
         href: "https://www.linkedin.com/in/erdi-kus/overlay/Certifications/488075456/treasury/?profileId=ACoAACbJ3wQBkdeU-r3hnyPhkhCMKXaR7IGDILU",
       },
     ],
+    projects: [
+      {
+        title: "CRM Tahminleme",
+        summary: "RFM • CLTV • churn • Apriori çapraz satış",
+        href: "https://crm.erdikus.me",
+      },
+    ],
   },
   {
     id: "data-science",
@@ -298,6 +305,16 @@ export const experienceAreas: ExperienceArea[] = [
       "Docker",
     ],
     projects: [
+      {
+        title: "SelectYourMovie",
+        summary: "Machine Learning Recommendation System",
+        href: "https://movie.erdikus.me",
+      },
+      {
+        title: "CRM Tahminleme",
+        summary: "RFM • CLTV • churn • Apriori çapraz satış",
+        href: "https://crm.erdikus.me",
+      },
       {
         title: "PillTrack",
         summary: "AI-assisted application development • Cursor",
