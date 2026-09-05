@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -157,17 +158,17 @@ export function ExperienceBoard() {
             }}
             className="h-full min-h-0 cursor-pointer text-left transition-colors hover:bg-muted/40"
           >
-            <CardHeader className="flex-1">
+            <CardHeader>
               <CardTitle className="text-base leading-snug">{area.title}</CardTitle>
               <CardDescription className="leading-5">{area.teaser}</CardDescription>
-              <div className="flex flex-col items-start gap-1 pt-2">
-                {area.tags.map((tag) => (
-                  <Badge key={tag} variant="outline">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
             </CardHeader>
+            <CardContent className="flex flex-1 flex-col items-start gap-1">
+              {area.tags.map((tag) => (
+                <Badge key={tag} variant="outline">
+                  {tag}
+                </Badge>
+              ))}
+            </CardContent>
             <CardFooter className="border-t-0 bg-transparent">
               <span className="text-xs text-muted-foreground">Detayları Gör →</span>
             </CardFooter>
