@@ -14,8 +14,8 @@ const actions = [
 export default function Home() {
   return (
     <main className="flex min-h-0 flex-1 items-center overflow-hidden">
-      <div className="mx-auto flex w-[70%] flex-col items-end gap-8 text-right">
-        <div className="w-full space-y-5">
+      <div className="mx-auto flex w-[70%] flex-col gap-8">
+        <div className="w-full space-y-5 text-left">
           <h1 className="font-heading text-5xl font-medium tracking-tight sm:text-6xl">
             Erdi KUŞ
           </h1>
