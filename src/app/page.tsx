@@ -19,7 +19,7 @@ export default async function Home() {
   ];
 
   return (
-    <main className="flex min-h-full flex-1 flex-col justify-center py-6">
+    <main className="flex min-h-full flex-col justify-start py-6 md:justify-center">
       <PageWidth className="flex flex-col gap-8">
         <div className="w-full space-y-4 text-left sm:space-y-5">
           <h1 className="font-heading text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
