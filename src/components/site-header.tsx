@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { HomeLink } from "@/components/home-link";
 import { LanguageSwitch } from "@/components/language-switch";
+import { PageWidth } from "@/components/page-width";
 import type { Locale } from "@/lib/i18n";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
@@ -10,13 +11,11 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const showHomeLink = pathname !== "/";
 
   return (
-    <header className="relative mx-auto w-[70%] pt-4">
-      <div className="flex justify-center">
-        {showHomeLink ? <HomeLink /> : <span className="h-8" />}
-      </div>
-      <div className="absolute top-4 right-0">
+    <header className="shrink-0 pt-4 pb-2">
+      <PageWidth className="flex items-center justify-between gap-3">
+        {showHomeLink ? <HomeLink /> : <span />}
         <LanguageSwitch locale={locale} />
-      </div>
+      </PageWidth>
     </header>
   );
 }

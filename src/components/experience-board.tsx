@@ -194,7 +194,7 @@ export function ExperienceBoard({
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {areas.map((area) => (
           <Card
             key={area.id}
@@ -214,7 +214,7 @@ export function ExperienceBoard({
               <CardTitle className="text-base leading-snug">{area.title}</CardTitle>
               <CardDescription className="leading-5">{area.teaser}</CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-1 flex-col items-start gap-1">
+            <CardContent className="flex flex-1 flex-row flex-wrap items-start gap-1">
               {area.tags.map((tag) => (
                 <Badge key={tag} variant="outline">
                   {tag}
@@ -229,10 +229,10 @@ export function ExperienceBoard({
       </div>
 
       <Dialog open={Boolean(active)} onOpenChange={(open) => !open && setActiveId(null)}>
-        <DialogContent className="flex max-h-[min(85dvh,44rem)] w-[min(48rem,calc(100%-1.5rem))] max-w-none flex-col gap-0 overflow-hidden bg-background p-0 shadow-2xl sm:max-w-3xl">
+        <DialogContent className="flex max-h-[90dvh] w-[min(48rem,calc(100%-1rem))] max-w-none flex-col gap-0 overflow-hidden bg-background p-0 shadow-2xl sm:max-h-[min(85dvh,44rem)] sm:max-w-3xl">
           {active ? (
             <>
-              <DialogHeader className="shrink-0 border-b px-6 py-5 pr-12 text-left">
+              <DialogHeader className="shrink-0 border-b px-4 py-4 pr-12 text-left sm:px-6 sm:py-5">
                 <DialogTitle className="text-xl leading-tight">
                   {active.detailTitle}
                 </DialogTitle>
@@ -240,7 +240,7 @@ export function ExperienceBoard({
                   {active.summary}
                 </DialogDescription>
               </DialogHeader>
-              <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
+              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6 sm:py-5">
                 <AreaDetail area={active} labels={labels} />
               </div>
             </>

@@ -44,14 +44,14 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       lang={copy.htmlLang}
       className={`dark ${geistSans.variable} ${geistMono.variable} h-dvh overflow-hidden antialiased`}
     >
-      <body className="relative flex h-dvh overflow-hidden flex-col bg-background font-sans text-foreground">
+      <body className="relative flex h-dvh flex-col overflow-hidden bg-background font-sans text-foreground">
         <div className="site-atmosphere" aria-hidden />
         <div className="relative z-10 flex min-h-0 flex-1 flex-col">
           <SiteHeader locale={locale} />
-          {children}
-        </div>
-        <div className="relative z-10">
-          <SiteFooter />
+          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain">
+            {children}
+            <SiteFooter />
+          </div>
         </div>
       </body>
     </html>
