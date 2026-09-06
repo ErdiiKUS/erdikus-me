@@ -3,7 +3,15 @@
 	auto_https off
 }
 
+(ssl_only) {
+	@insecure header CF-Visitor {"scheme":"http"}
+	redir @insecure https://{host}{uri} 301
+	@secure header CF-Visitor {"scheme":"https"}
+	header @secure Strict-Transport-Security "max-age=31536000; includeSubDomains"
+}
+
 http://erdikus.me, http://www.erdikus.me {
+	import ssl_only
 	encode gzip
 	reverse_proxy site:3000 {
 		header_up CF-IPCountry {http.request.header.CF-IPCountry}
@@ -13,6 +21,7 @@ http://erdikus.me, http://www.erdikus.me {
 }
 
 http://movie.erdikus.me {
+	import ssl_only
 	reverse_proxy movie:8501 {
 		header_up X-Forwarded-Proto https
 		header_up X-Forwarded-Host {host}
@@ -21,6 +30,7 @@ http://movie.erdikus.me {
 }
 
 http://crm.erdikus.me {
+	import ssl_only
 	reverse_proxy crm:8501 {
 		header_up X-Forwarded-Proto https
 		header_up X-Forwarded-Host {host}
@@ -29,8 +39,5 @@ http://crm.erdikus.me {
 }
 
 :80 {
-	encode gzip
-	reverse_proxy site:3000 {
-		header_up CF-IPCountry {http.request.header.CF-IPCountry}
-	}
+	redir https://erdikus.me{uri} 301
 }
